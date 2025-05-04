@@ -281,7 +281,7 @@ def interactive_shazam(enable_guitar_tabs=False):
             
         print("\nListening for audio...")
         result = run_live_inference(
-            interval_t=0.5,
+            interval_t=1,
             max_duration=20,
             samplerate=44100,
             last_n_intervals=5,
