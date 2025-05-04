@@ -1,0 +1,7 @@
+db/
+.venv/
+**.mp4
+**.wav
+.DS_Store
+**.pyc
+**.pt
