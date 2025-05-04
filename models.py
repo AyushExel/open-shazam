@@ -70,8 +70,8 @@ def get_wav2clip_features(file: Union[str|bytes]):
         else:
             with open(temp_file_path, 'wb') as f:
                 f.write(file)
-        print(f"Saved temporary WAV file to: {temp_file_path}")
-        audio, _ = librosa.load(temp_file_path, sr=44100)
+        #print(f"Saved temporary WAV file to: {temp_file_path}")
+        audio, _ = librosa.load(temp_file_path, sr=48000)
         embeddings = wav2clip.embed_audio(audio, model)
 
         return embeddings
@@ -82,7 +82,7 @@ def get_wav2clip_features(file: Union[str|bytes]):
         if temp_file_path and os.path.exists(temp_file_path):
             try:
                 os.remove(temp_file_path)
-                print(f"Removed temporary file: {temp_file_path}")
+                #print(f"Removed temporary file: {temp_file_path}")
             except OSError as oe:
                 print(f"Error removing temporary file {temp_file_path}: {oe}")
     
@@ -101,8 +101,8 @@ def get_clap_features(file: Union[str|bytes]):
         else:
             with open(temp_file_path, 'wb') as f:
                 f.write(file)
-        print(f"Saved temporary WAV file to: {temp_file_path}")
-        audio, _ = librosa.load(temp_file_path, sr=44100)
+        #print(f"Saved temporary WAV file to: {temp_file_path}")
+        audio, _ = librosa.load(temp_file_path, sr=48000)
         audio = audio.reshape(1, -1) # Make it (1,T) or (N,T)
         embedding = model.get_audio_embedding_from_data(x = audio, use_tensor=False)
         return embedding
