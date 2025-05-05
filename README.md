@@ -22,7 +22,7 @@ https://github.com/user-attachments/assets/3b4867c6-08fb-4e96-bb64-f1d970d0b983
 
 
 
-**Augment using VectorDB **
+**Augment using VectorDB**
 
 👉 I used LanceDB to store smaller chunks (experimented with many but settled to 5sec chunks) with their original song id.
 ⚠️ But simply retrieving the most common chunk id across all chunks didn't do the trick. In fact, the results were pretty bad.
@@ -35,7 +35,7 @@ https://github.com/user-attachments/assets/3b4867c6-08fb-4e96-bb64-f1d970d0b983
 👉 So, each chunk was retrieved from t to t-n (n=3) timestamps and the most common top1 was chosen as the best result for that window to smooth the noise.
 
 
-**Track matches across multiple segments  **
+**Track matches across multiple segments**
 
 👉 Global best match is maintained for each chunk. If the global top1 doesn't change for early_stopping (=4) timestamps, the execution is stopped and either the result is displayed or its guitar tabs page is opened if tabs mode is enabled.
 
